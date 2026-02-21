@@ -1,65 +1,231 @@
-import Image from "next/image";
+import Navbar from "@/components/navbar"
+import { Button } from "@/components/ui/button"
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-[#0B1120] text-white overflow-hidden">
+
+      <Navbar />
+
+      {/* ================= HERO ================= */}
+      <section className="relative pt-36 pb-32 overflow-hidden">
+
+        {/* Controlled Background Glow */}
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-red-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+          {/* Left Content */}
+          <div className="space-y-8">
+            <h1 className="text-6xl font-extrabold leading-tight">
+              A Structured Platform <br />
+              for <span className="text-red-500">Political Engagement</span>
+            </h1>
+
+            <p className="text-slate-300 text-lg max-w-lg">
+              Participate in verified polls, engage in structured debates,
+              and track real-time public sentiment.
+            </p>
+
+            <div className="flex gap-5 pt-4">
+
+              {/* Primary CTA */}
+              <Button
+                size="lg"
+                className="bg-red-600 hover:bg-red-700 text-white px-8 transition"
+              >
+                Get Started
+              </Button>
+
+              {/* Secondary CTA */}
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/30 text-black hover:bg-white/10 px-8 transition"
+              >
+                Explore Polls
+              </Button>
+
+            </div>
+          </div>
+
+          {/* Glass Poll Preview */}
+          <div>
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl">
+
+              <h3 className="text-lg font-semibold mb-6">
+                Should fuel prices be reduced nationwide?
+              </h3>
+
+              <div className="space-y-5">
+
+                <div>
+                  <div className="flex justify-between text-sm mb-2">
+                    <span>Yes</span>
+                    <span>62%</span>
+                  </div>
+                  <div className="w-full bg-white/10 rounded-full h-3">
+                    <div className="bg-red-500 h-3 rounded-full w-[62%]"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-sm mb-2">
+                    <span>No</span>
+                    <span>38%</span>
+                  </div>
+                  <div className="w-full bg-white/10 rounded-full h-3">
+                    <div className="bg-yellow-400 h-3 rounded-full w-[38%]"></div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ================= STATS ================= */}
+      <section className="py-24 bg-[#111827]">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+
+          <h2 className="text-4xl font-bold mb-16">
+            Platform Impact
+          </h2>
+
+          <div className="grid md:grid-cols-4 gap-10">
+
+            <div>
+              <h3 className="text-5xl font-bold text-red-500">120K+</h3>
+              <p className="text-slate-400 mt-3">Registered Users</p>
+            </div>
+
+            <div>
+              <h3 className="text-5xl font-bold text-red-500">8.5M+</h3>
+              <p className="text-slate-400 mt-3">Votes Cast</p>
+            </div>
+
+            <div>
+              <h3 className="text-5xl font-bold text-red-500">950+</h3>
+              <p className="text-slate-400 mt-3">Active Polls</p>
+            </div>
+
+            <div>
+              <h3 className="text-5xl font-bold text-red-500">99%</h3>
+              <p className="text-slate-400 mt-3">Moderated Discussions</p>
+            </div>
+
+          </div>
+
         </div>
-      </main>
+      </section>
+
+      {/* ================= FEATURES ================= */}
+      <section className="py-24 bg-[#0B1120]">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+
+          <h2 className="text-4xl font-bold mb-16">
+            Why PBook?
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+
+            <div className="bg-[#111827] p-8 rounded-2xl border border-white/5 hover:border-red-500/40 transition">
+              <h3 className="text-xl font-semibold mb-4 text-red-500">
+                Verified Polls
+              </h3>
+              <p className="text-slate-400">
+                Transparent and moderated discussions.
+              </p>
+            </div>
+
+            <div className="bg-[#111827] p-8 rounded-2xl border border-white/5 hover:border-red-500/40 transition">
+              <h3 className="text-xl font-semibold mb-4 text-red-500">
+                Real-Time Results
+              </h3>
+              <p className="text-slate-400">
+                Instant participation tracking.
+              </p>
+            </div>
+
+            <div className="bg-[#111827] p-8 rounded-2xl border border-white/5 hover:border-red-500/40 transition">
+              <h3 className="text-xl font-semibold mb-4 text-red-500">
+                Structured Debate
+              </h3>
+              <p className="text-slate-400">
+                Focused discussions without chaos.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= PRIVACY & SECURITY ================= */}
+      <section className="py-24 bg-[#111827]">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+
+          <h2 className="text-4xl font-bold mb-16">
+            Privacy & Vote Integrity
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+
+            <div className="bg-[#0B1120] p-8 rounded-2xl border border-white/5">
+              <h3 className="text-xl font-semibold mb-4 text-red-500">
+                Secure Voting
+              </h3>
+              <p className="text-slate-400">
+                Each vote is securely recorded and protected from duplication or manipulation.
+              </p>
+            </div>
+
+            <div className="bg-[#0B1120] p-8 rounded-2xl border border-white/5">
+              <h3 className="text-xl font-semibold mb-4 text-red-500">
+                Protected User Identity
+              </h3>
+              <p className="text-slate-400">
+                Participation is safeguarded with strong authentication and privacy controls.
+              </p>
+            </div>
+
+            <div className="bg-[#0B1120] p-8 rounded-2xl border border-white/5">
+              <h3 className="text-xl font-semibold mb-4 text-red-500">
+                Moderated Discussions
+              </h3>
+              <p className="text-slate-400">
+                Comments and debates are monitored to ensure respectful engagement.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 bg-red-600 text-center">
+        <h2 className="text-4xl font-bold mb-8">
+          Join Responsible Political Discussion
+        </h2>
+
+        <Button
+          size="lg"
+          className="bg-white text-red-600 hover:bg-gray-200 px-10"
+        >
+          Create Free Account
+        </Button>
+      </section>
+
+      {/* ================= FOOTER ================= */}
+      <footer className="bg-black py-8 text-center text-slate-500 text-sm">
+        © 2026 PBook. All rights reserved.
+      </footer>
+
     </div>
-  );
+  )
 }
