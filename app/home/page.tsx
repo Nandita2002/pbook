@@ -10,7 +10,6 @@ export default function HomePage() {
 
         {/* ================= LEFT SIDEBAR ================= */}
         <aside className="hidden lg:block space-y-6">
-
           <div className="bg-[#111827] p-6 rounded-2xl border border-white/10">
             <h3 className="text-lg font-semibold mb-4 text-blue-500">
               Categories
