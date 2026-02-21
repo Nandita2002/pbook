@@ -16,23 +16,23 @@ export default function SignupPage() {
     )
 
     if (role === "admin") {
-      router.push("/admin/dashboard")
+      router.push("/dashboard") // Adjust if using /admin/dashboard
     } else {
       router.push("/home")
     }
   }
 
   return (
-    <div className="min-h-screen bg-[#0B1120] flex items-center justify-center relative overflow-hidden px-6">
+    <div className="min-h-screen bg-[#0A0F1C] flex items-center justify-center relative overflow-hidden px-6">
 
-      {/* Background Glow */}
-      <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-red-600/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-yellow-500/10 rounded-full blur-3xl"></div>
+      {/* Blue Background Glow */}
+      <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-400/10 rounded-full blur-3xl"></div>
 
       {/* Card */}
-      <div className="relative w-full max-w-lg bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl shadow-2xl">
+      <div className="relative w-full max-w-lg bg-[#111827] border border-white/10 p-10 rounded-3xl shadow-2xl space-y-8">
 
-        <div className="text-center mb-8">
+        <div className="text-center">
           <h2 className="text-3xl font-bold text-white">
             Create Your Account
           </h2>
@@ -45,52 +45,52 @@ export default function SignupPage() {
 
           <Input
             placeholder="Full Name"
-            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-red-500"
+            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-500"
           />
 
           <Input
             placeholder="Username"
-            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-red-500"
+            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-500"
           />
 
           <Input
             placeholder="Email Address"
             type="email"
-            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-red-500"
+            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-500"
           />
 
           <div className="grid grid-cols-2 gap-4">
             <Input
               type="password"
               placeholder="Password"
-              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-red-500"
+              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-500"
             />
             <Input
               type="password"
               placeholder="Confirm Password"
-              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-red-500"
+              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-500"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <Input
               placeholder="Country"
-              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-red-500"
+              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-500"
             />
             <Input
               placeholder="State / Region"
-              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-red-500"
+              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-500"
             />
           </div>
 
           <Input
             type="date"
-            className="bg-white/10 border-white/20 text-white focus:border-red-500"
+            className="bg-white/10 border-white/20 text-white focus:border-blue-500"
           />
 
           {/* Political Interest */}
           <select
-            className="w-full bg-white/10 border border-white/20 rounded-md p-3 text-white focus:outline-none focus:border-red-500"
+            className="w-full bg-white/10 border border-white/20 rounded-md p-3 text-white focus:outline-none focus:border-blue-500"
           >
             <option className="text-black">Political Interest</option>
             <option className="text-black">Economy</option>
@@ -101,7 +101,7 @@ export default function SignupPage() {
 
           {/* Role selector (Demo Only) */}
           <select
-            className="w-full bg-white/10 border border-white/20 rounded-md p-3 text-white focus:outline-none focus:border-red-500"
+            className="w-full bg-white/10 border border-white/20 rounded-md p-3 text-white focus:outline-none focus:border-blue-500"
             onChange={(e) => setRole(e.target.value)}
           >
             <option value="user" className="text-black">User</option>
@@ -110,14 +110,17 @@ export default function SignupPage() {
 
           {/* Terms */}
           <div className="flex items-start gap-3 text-sm text-slate-400">
-            <input type="checkbox" className="mt-1" />
+            <input
+              type="checkbox"
+              className="mt-1 accent-blue-600"
+            />
             <span>
               I agree to the Terms of Service and Privacy Policy.
             </span>
           </div>
 
           <Button
-            className="w-full bg-red-600 hover:bg-red-700 text-white transition"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white transition"
             onClick={handleSignup}
           >
             Create Account
@@ -126,7 +129,7 @@ export default function SignupPage() {
           <p className="text-sm text-center text-slate-400">
             Already have an account?{" "}
             <span
-              className="text-red-500 cursor-pointer hover:underline"
+              className="text-blue-500 cursor-pointer hover:underline"
               onClick={() => router.push("/login")}
             >
               Login

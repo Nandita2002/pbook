@@ -1,160 +1,86 @@
 "use client"
 
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
+import PollCard from "@/components/ui/Pollcard"
 
 export default function HomePage() {
-  const router = useRouter()
-
-  useEffect(() => {
-    const auth = JSON.parse(localStorage.getItem("auth") || "{}")
-    if (!auth.isLoggedIn || auth.role !== "user") {
-      router.push("/login")
-    }
-  }, [])
-
-  const logout = () => {
-    localStorage.removeItem("auth")
-    router.push("/login")
-  }
-
   return (
-    <div className="min-h-screen bg-[#0B1120] text-white">
+    <div className="min-h-screen bg-[#0A0F1C] text-white pt-24 px-6">
 
-      {/* Top Navbar */}
-      <header className="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10 px-8 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">
-          P<span className="text-red-500">Book</span>
-        </h1>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-        <Button
-          variant="outline"
-          className="border-red-500 text-red-500 hover:bg-red-500/10"
-          onClick={logout}
-        >
-          Logout
-        </Button>
-      </header>
+        {/* ================= LEFT SIDEBAR ================= */}
+        <aside className="hidden lg:block space-y-6">
 
-      {/* Layout */}
-      <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 px-6 py-10">
-
-        {/* Left Sidebar */}
-        <aside className="col-span-3 hidden md:block">
-          <div className="bg-[#111827] p-6 rounded-2xl border border-white/5 space-y-6">
-            <h3 className="font-semibold text-lg">Navigation</h3>
-            <div className="space-y-3 text-slate-400">
-              <p className="hover:text-red-500 cursor-pointer">Home</p>
-              <p className="hover:text-red-500 cursor-pointer">Trending</p>
-              <p className="hover:text-red-500 cursor-pointer">My Votes</p>
-              <p className="hover:text-red-500 cursor-pointer">Saved</p>
-            </div>
+          <div className="bg-[#111827] p-6 rounded-2xl border border-white/10">
+            <h3 className="text-lg font-semibold mb-4 text-blue-500">
+              Categories
+            </h3>
+            <ul className="space-y-3 text-slate-400 text-sm">
+              <li className="hover:text-white cursor-pointer">Economy</li>
+              <li className="hover:text-white cursor-pointer">Education</li>
+              <li className="hover:text-white cursor-pointer">Healthcare</li>
+              <li className="hover:text-white cursor-pointer">National Security</li>
+            </ul>
           </div>
+
+          <div className="bg-[#111827] p-6 rounded-2xl border border-white/10">
+            <h3 className="text-lg font-semibold mb-4 text-blue-500">
+              Trending Topics
+            </h3>
+            <ul className="space-y-3 text-slate-400 text-sm">
+              <li>#Budget2026</li>
+              <li>#FuelReform</li>
+              <li>#VotingPolicy</li>
+            </ul>
+          </div>
+
         </aside>
 
-        {/* Center Feed */}
-        <main className="col-span-12 md:col-span-6 space-y-8">
+        {/* ================= MAIN FEED ================= */}
+        <main className="lg:col-span-2 space-y-10">
 
-          {/* Poll Card 1 */}
-          <div className="bg-[#111827] p-6 rounded-2xl border border-white/5 space-y-5">
-
-            {/* Metadata */}
-            <div className="flex justify-between text-sm text-slate-400">
-              <span>Posted by Admin • 2h ago</span>
-              <span>12,542 votes</span>
-            </div>
-
-            <h3 className="text-xl font-semibold">
-              Should fuel prices be reduced nationwide?
-            </h3>
-
-            {/* Vote Bars */}
-            <div className="space-y-4">
-
-              <div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span>Yes</span>
-                  <span>62%</span>
-                </div>
-                <div className="w-full bg-white/10 rounded-full h-3">
-                  <div className="bg-red-500 h-3 rounded-full w-[62%]"></div>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span>No</span>
-                  <span>38%</span>
-                </div>
-                <div className="w-full bg-white/10 rounded-full h-3">
-                  <div className="bg-yellow-400 h-3 rounded-full w-[38%]"></div>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Actions */}
-            <div className="flex gap-4 pt-4">
-              <Button className="bg-red-600 hover:bg-red-700">
-                Vote Yes
-              </Button>
-
-              <Button
-                variant="outline"
-                className="border-white/30 text-black hover:bg-white/10"
-              >
-                Vote No
-              </Button>
-            </div>
-
-          </div>
-
-          {/* Poll Card 2 */}
-          <div className="bg-[#111827] p-6 rounded-2xl border border-white/5 space-y-5">
-
-            <div className="flex justify-between text-sm text-slate-400">
-              <span>Posted by Policy Board • 5h ago</span>
-              <span>8,921 votes</span>
-            </div>
-
-            <h3 className="text-xl font-semibold">
-              Should voting be mandatory in national elections?
-            </h3>
-
-            <div className="flex gap-4 pt-4">
-              <Button className="bg-red-600 hover:bg-red-700">
-                Vote Yes
-              </Button>
-
-              <Button
-                variant="outline"
-                className="border-white/30 text-black hover:bg-white/10"
-              >
-                Vote No
-              </Button>
-            </div>
-
-          </div>
+          <PollCard />
+          <PollCard />
 
         </main>
 
-        {/* Right Panel */}
-        <aside className="col-span-3 hidden md:block">
-          <div className="bg-[#111827] p-6 rounded-2xl border border-white/5 space-y-6">
+        {/* ================= RIGHT SIDEBAR ================= */}
+        <aside className="hidden lg:block space-y-6">
 
-            <h3 className="font-semibold text-lg">
-              Trending Topics
+          <div className="bg-[#111827] p-6 rounded-2xl border border-white/10">
+            <h3 className="text-lg font-semibold mb-4 text-blue-500">
+              Platform Stats
             </h3>
 
-            <div className="space-y-3 text-slate-400 text-sm">
-              <p>#TaxReform</p>
-              <p>#FuelPriceDebate</p>
-              <p>#ElectionPolicy</p>
-              <p>#EducationReform</p>
-            </div>
+            <div className="space-y-4 text-sm text-slate-400">
+              <div className="flex justify-between">
+                <span>Total Votes Today</span>
+                <span className="text-blue-500 font-semibold">542</span>
+              </div>
 
+              <div className="flex justify-between">
+                <span>Active Polls</span>
+                <span className="text-blue-500 font-semibold">18</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>New Discussions</span>
+                <span className="text-blue-500 font-semibold">24</span>
+              </div>
+            </div>
           </div>
+
+          <div className="bg-[#111827] p-6 rounded-2xl border border-white/10">
+            <h3 className="text-lg font-semibold mb-4 text-blue-500">
+              Suggested Polls
+            </h3>
+            <ul className="space-y-3 text-slate-400 text-sm">
+              <li>Should voting age be reduced?</li>
+              <li>Is tax reform necessary?</li>
+              <li>Should renewable energy subsidies increase?</li>
+            </ul>
+          </div>
+
         </aside>
 
       </div>

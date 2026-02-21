@@ -3,16 +3,16 @@ import { Button } from "@/components/ui/button"
 
 export default function LandingPage() {
   return (
-    <div className="bg-[#0B1120] text-white overflow-hidden">
+    <div className="bg-[#0A0F1C] text-white overflow-hidden">
 
       <Navbar />
 
       {/* ================= HERO ================= */}
       <section className="relative pt-36 pb-32 overflow-hidden">
 
-        {/* Controlled Background Glow */}
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-red-600/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-3xl"></div>
+        {/* Blue Background Glow */}
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-3xl"></div>
 
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
@@ -20,7 +20,7 @@ export default function LandingPage() {
           <div className="space-y-8">
             <h1 className="text-6xl font-extrabold leading-tight">
               A Structured Platform <br />
-              for <span className="text-red-500">Political Engagement</span>
+              for <span className="text-blue-500">Political Engagement</span>
             </h1>
 
             <p className="text-slate-300 text-lg max-w-lg">
@@ -30,19 +30,17 @@ export default function LandingPage() {
 
             <div className="flex gap-5 pt-4">
 
-              {/* Primary CTA */}
               <Button
                 size="lg"
-                className="bg-red-600 hover:bg-red-700 text-white px-8 transition"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8"
               >
                 Get Started
               </Button>
 
-              {/* Secondary CTA */}
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-black hover:bg-white/10 px-8 transition"
+                className="border-white/30 text-white hover:bg-white/10 px-8"
               >
                 Explore Polls
               </Button>
@@ -66,7 +64,7 @@ export default function LandingPage() {
                     <span>62%</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-3">
-                    <div className="bg-red-500 h-3 rounded-full w-[62%]"></div>
+                    <div className="bg-blue-600 h-3 rounded-full w-[62%]"></div>
                   </div>
                 </div>
 
@@ -76,7 +74,7 @@ export default function LandingPage() {
                     <span>38%</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-3">
-                    <div className="bg-yellow-400 h-3 rounded-full w-[38%]"></div>
+                    <div className="bg-blue-400 h-3 rounded-full w-[38%]"></div>
                   </div>
                 </div>
 
@@ -99,22 +97,22 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-4 gap-10">
 
             <div>
-              <h3 className="text-5xl font-bold text-red-500">120K+</h3>
+              <h3 className="text-5xl font-bold text-blue-500">120K+</h3>
               <p className="text-slate-400 mt-3">Registered Users</p>
             </div>
 
             <div>
-              <h3 className="text-5xl font-bold text-red-500">8.5M+</h3>
+              <h3 className="text-5xl font-bold text-blue-500">8.5M+</h3>
               <p className="text-slate-400 mt-3">Votes Cast</p>
             </div>
 
             <div>
-              <h3 className="text-5xl font-bold text-red-500">950+</h3>
+              <h3 className="text-5xl font-bold text-blue-500">950+</h3>
               <p className="text-slate-400 mt-3">Active Polls</p>
             </div>
 
             <div>
-              <h3 className="text-5xl font-bold text-red-500">99%</h3>
+              <h3 className="text-5xl font-bold text-blue-500">99%</h3>
               <p className="text-slate-400 mt-3">Moderated Discussions</p>
             </div>
 
@@ -124,7 +122,7 @@ export default function LandingPage() {
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section className="py-24 bg-[#0B1120]">
+      <section className="py-24 bg-[#0A0F1C]">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
           <h2 className="text-4xl font-bold mb-16">
@@ -133,39 +131,30 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-10">
 
-            <div className="bg-[#111827] p-8 rounded-2xl border border-white/5 hover:border-red-500/40 transition">
-              <h3 className="text-xl font-semibold mb-4 text-red-500">
-                Verified Polls
-              </h3>
-              <p className="text-slate-400">
-                Transparent and moderated discussions.
-              </p>
-            </div>
-
-            <div className="bg-[#111827] p-8 rounded-2xl border border-white/5 hover:border-red-500/40 transition">
-              <h3 className="text-xl font-semibold mb-4 text-red-500">
-                Real-Time Results
-              </h3>
-              <p className="text-slate-400">
-                Instant participation tracking.
-              </p>
-            </div>
-
-            <div className="bg-[#111827] p-8 rounded-2xl border border-white/5 hover:border-red-500/40 transition">
-              <h3 className="text-xl font-semibold mb-4 text-red-500">
-                Structured Debate
-              </h3>
-              <p className="text-slate-400">
-                Focused discussions without chaos.
-              </p>
-            </div>
+            {[
+              "Verified Polls",
+              "Real-Time Results",
+              "Structured Debate"
+            ].map((feature) => (
+              <div
+                key={feature}
+                className="bg-[#111827] p-8 rounded-2xl border border-white/10 hover:border-blue-500/40 transition"
+              >
+                <h3 className="text-xl font-semibold mb-4 text-blue-500">
+                  {feature}
+                </h3>
+                <p className="text-slate-400">
+                  Transparent and structured civic participation.
+                </p>
+              </div>
+            ))}
 
           </div>
 
         </div>
       </section>
 
-      {/* ================= PRIVACY & SECURITY ================= */}
+      {/* ================= PRIVACY ================= */}
       <section className="py-24 bg-[#111827]">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
@@ -175,32 +164,23 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-10">
 
-            <div className="bg-[#0B1120] p-8 rounded-2xl border border-white/5">
-              <h3 className="text-xl font-semibold mb-4 text-red-500">
-                Secure Voting
-              </h3>
-              <p className="text-slate-400">
-                Each vote is securely recorded and protected from duplication or manipulation.
-              </p>
-            </div>
-
-            <div className="bg-[#0B1120] p-8 rounded-2xl border border-white/5">
-              <h3 className="text-xl font-semibold mb-4 text-red-500">
-                Protected User Identity
-              </h3>
-              <p className="text-slate-400">
-                Participation is safeguarded with strong authentication and privacy controls.
-              </p>
-            </div>
-
-            <div className="bg-[#0B1120] p-8 rounded-2xl border border-white/5">
-              <h3 className="text-xl font-semibold mb-4 text-red-500">
-                Moderated Discussions
-              </h3>
-              <p className="text-slate-400">
-                Comments and debates are monitored to ensure respectful engagement.
-              </p>
-            </div>
+            {[
+              "Secure Voting",
+              "Protected User Identity",
+              "Moderated Discussions"
+            ].map((item) => (
+              <div
+                key={item}
+                className="bg-[#0A0F1C] p-8 rounded-2xl border border-white/10"
+              >
+                <h3 className="text-xl font-semibold mb-4 text-blue-500">
+                  {item}
+                </h3>
+                <p className="text-slate-400">
+                  Built with structured moderation and integrity-first design.
+                </p>
+              </div>
+            ))}
 
           </div>
 
@@ -208,14 +188,14 @@ export default function LandingPage() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 bg-red-600 text-center">
-        <h2 className="text-4xl font-bold mb-8">
+      <section className="py-24 bg-blue-600 text-center">
+        <h2 className="text-4xl font-bold mb-8 text-white">
           Join Responsible Political Discussion
         </h2>
 
         <Button
           size="lg"
-          className="bg-white text-red-600 hover:bg-gray-200 px-10"
+          className="bg-white text-blue-600 hover:bg-gray-200 px-10"
         >
           Create Free Account
         </Button>
